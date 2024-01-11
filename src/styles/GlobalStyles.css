@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* -------------------- 프로젝트 색상 설정 --------------------*/
+  --colors-main-primary: var(--colors-green-2);
+  --colors-main-secondary: var(--colors-brown-1);
+  --colors-green-0: #b7b7a4;
+  --colors-green-1: #a5a58d;
+  --colors-green-2: #6b705c;
+  --colors-brown-0: #ffe8d6;
+  --colors-brown-1: #ddbea9;
+  --colors-brown-2: #cb997e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+@layer base {
+  html {
+    font-family: 'Jua', sans-serif;
+    font-size: 16px;
+    color: var(--colors-green-0);
+  }
+  body {
+    background: var(--colors-brown-0);
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 16px;
+  }
+}
