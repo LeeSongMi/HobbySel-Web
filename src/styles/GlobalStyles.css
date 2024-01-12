@@ -15,10 +15,6 @@
   --colors-brown-2: #cb997e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
 @layer base {
   html {
     font-family: 'Jua', sans-serif;
@@ -28,7 +24,10 @@
   body {
     background: var(--colors-brown-0);
   }
-
+  main {
+    height: calc(100% - 50px);
+  }
+  /* -------------------- Font Styles --------------------*/
   h1 {
     font-size: 40px;
   }
@@ -46,5 +45,50 @@
   }
   h6 {
     font-size: 16px;
+  }
+  /* -------------------- Button Styles --------------------*/
+  button,
+  [type='button'] {
+    background: var(--colors-main-primary);
+    border-radius: 4px;
+    padding: 10px;
+    color: white;
+  }
+  .button-secondary {
+    background: var(--colors-main-secondary);
+  }
+  .button-border {
+    background: white;
+    border: 2px solid var(--colors-main-primary);
+    color: var(--colors-main-primary);
+  }
+  .button-border-secondary {
+    background: white;
+    border: 2px solid var(--colors-main-secondary);
+    color: var(--colors-main-secondary);
+  }
+  .button-empty {
+    background: none;
+    border: none;
+  }
+  .button-text,
+  .button-text-secondary {
+    width: -webkit-fill-available;
+    background: none;
+    border-bottom: 2px solid var(--colors-main-primary);
+    border-radius: 0;
+    color: var(--colors-main-primary);
+    text-align: left;
+  }
+  .button-text-secondary {
+    border-bottom: 2px solid var(--colors-main-secondary);
+    color: var(--colors-main-secondary);
+  }
+  /* -------------------- Badge Styles --------------------*/
+  .badge {
+    background: var(--colors-main-primary);
+    border-radius: 12px;
+    padding: 8px 5px;
+    color: white;
   }
 }
