@@ -89,6 +89,8 @@
     background: var(--colors-main-primary);
     border-radius: 12px;
     padding: 8px 5px;
+    text-align: center;
+    line-height: 1em;
     color: white;
   }
 }
