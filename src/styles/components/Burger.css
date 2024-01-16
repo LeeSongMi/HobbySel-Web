@@ -1,0 +1,52 @@
+rect {
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.active-burger #Rectangle1 {
+  animation-name: rightRotate;
+  transform-origin: 40% 28%;
+}
+.active-burger #Rectangle2 {
+  animation-name: leftRotate;
+  transform-origin: 50% 50%;
+}
+.active-burger #Rectangle3 {
+  animation-duration: 0.5s;
+  animation-name: removed;
+}
+@keyframes removed {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rightRotate {
+  0% {
+    -webkit-transform: translateY(0) rotate(0deg);
+    -o-transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: ranslateY(9px) rotate(45deg);
+    -o-transform: ranslateY(9px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
+  }
+}
+
+@keyframes leftRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}

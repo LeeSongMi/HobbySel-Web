@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '@/styles/GlobalStyles.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
   title: 'HobbySel',
@@ -12,7 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className="w-full h-dvh">
+        <Header />
+        <main className="px-4 py-10">{children}</main>
+      </body>
     </html>
   );
 }
