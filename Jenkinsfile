@@ -1,12 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-    DOCKER_REGISTRY = "songmi383" // Docker 레지스트리 URL
-    DOCKER_HUB_CREDENTIALS = 'Docker-Hub-ID'
-    DOCKER_IMAGE_TAG = "latest"
-  }
-
   stages {
     stage('Checkout') {
       steps {
