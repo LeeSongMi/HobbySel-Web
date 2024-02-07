@@ -2,7 +2,9 @@ pipeline {
   agent any
 
   environment {
+    DOCKER_REGISTRY = "songmi383" // Docker 레지스트리 URL
     DOCKER_HUB_CREDENTIALS = 'Docker-Hub-ID'
+    DOCKER_IMAGE_TAG = "latest"
   }
 
   stages {
@@ -14,10 +16,10 @@ pipeline {
     stage('Build and Push Docker Image') {
       steps {
         script {
-          def appImage = docker.build("songmi383/Hobby-Sel")
-          docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_CREDENTIALS) {
-            appImage.push()
-          }
+          docker.build("${DOCKER_REGISTRY}/Hobby-Sel:${DOCKER_IMAGE_TAG}")
+          docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_HUB_CREDENTIALS}") {
+            docker.image("${DOCKER_REGISTRY}/Hobby-Sel:${DOCKER_IMAGE_TAG}").push()
+            }
         }
       }
     }
