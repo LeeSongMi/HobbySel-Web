@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_HUB_CREDENTIALS = 'Docker-Hub-ID'  // Jenkins Credential ID for Docker Hub
+    DOCKER_HUB_CREDENTIALS = 'Docker-Hub-ID'
   }
 
   stages {
@@ -11,13 +11,15 @@ pipeline {
         checkout scm
       }
     }
-    stage('Build image') {
-        appImage = docker.build("songmi383/Hobby-Sel:latest")
-    }
-    stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_CREDENTIALS) {
+    stage('Build and Push Docker Image') {
+      steps {
+        script {
+          def appImage = docker.build("songmi383/Hobby-Sel")
+          docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_CREDENTIALS) {
             appImage.push()
+          }
         }
+      }
     }
     stage('Deploy') {
       steps {
