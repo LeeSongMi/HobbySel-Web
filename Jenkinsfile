@@ -13,17 +13,17 @@ pipeline {
         checkout scm
       }
     }
-    stage('Build Docker Image') {
+    
+    stage('Docker Build') {
+    	agent any
       steps {
-        sh 'docker build -t Hobby-Sel .'
-
-        
+      	sh 'docker build -t songmi383/hobby-sel:latest .'
       }
     }
-    stage('Push Docker Image') {
+
+    stage('Pulssh Docker Image') {
       steps {
         script {
-          docker.build("${DOCKER_REGISTRY}/Hobby-Sel:${DOCKER_IMAGE_TAG}")
           docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_HUB_CREDENTIALS}") {
             docker.image("${DOCKER_REGISTRY}/Hobby-Sel:${DOCKER_IMAGE_TAG}").push()
             }
