@@ -13,7 +13,14 @@ pipeline {
         checkout scm
       }
     }
-    stage('Build and Push Docker Image') {
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t Hobby-Sel .'
+
+        
+      }
+    }
+    stage('Push Docker Image') {
       steps {
         script {
           docker.build("${DOCKER_REGISTRY}/Hobby-Sel:${DOCKER_IMAGE_TAG}")
