@@ -10,16 +10,17 @@ pipeline {
     
     stage('Build') {
       steps{
-        sh 'npm install'
-        sh 'npm build'
+        echo 'building the application...'
+        sh 'yarn install'
+        sh 'yarn build'
       }
     }
 
     stage('Deploy') {
       steps {
-        script {
-          sh 'npm start'
-        }
+        echo 'deploying the application...'
+        sh 'yarn start'
+        
       }
     }
   }
